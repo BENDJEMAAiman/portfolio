@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #fff6e8;
+  --awning: #ffd2ae;
+  --awning-light: #ffdcc1;
+  --brown: #945c32;
+  --text: #965d33;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: #eeeeee;
+  font-family: "Baloo 2", sans-serif;
+}
+
+/*
+  The Figma frame is 1280 × 673.
+  Keeping the same aspect ratio makes the page match the design
+  when the browser window is resized.
+*/
+.page {
+  position: relative;
+  width: min(100%, 1280px);
+  aspect-ratio: 1280 / 673;
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+/* ---------------- AWNING ---------------- */
+
+.awning {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 145px;
+  overflow: hidden;
+  background: var(--awning);
+}
+
+/* Horizontal top/bottom seams of the awning */
+.awning-stripes {
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 100%;
+  height: 7px;
+  background: rgba(183, 108, 60, 0.18);
+}
+
+/*
+  Repeating vertical panels.
+  If you have an awning image from Figma, you can simply replace
+  the whole .awning with that image.
+*/
+.awning::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 105px,
+      rgba(188, 105, 57, 0.16) 105px 113px
+    );
+}
+
+/* Bottom scalloped edge */
+.scallops {
+  position: absolute;
+  left: -2%;
+  bottom: -2px;
+  width: 104%;
+  height: 82px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.scallops span {
+  flex: 0 0 12.5%;
+  height: 75px;
+  border-radius: 0 0 50% 50%;
+  background: var(--awning-light);
+  border-bottom: 7px solid var(--brown);
+  position: relative;
+  transform: translateY(-1px);
+}
+
+/* Create the brown curved separators between scallops */
+.scallops span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 100%;
+  height: 75px;
+  transform: translateX(-50%);
+  border-radius: 0 0 50% 50%;
+  box-shadow: 0 8px 0 0 var(--brown);
+  opacity: 0.95;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  position: absolute;
+  top: 145px;
+  left: 0;
+  width: 100%;
+  height: 360px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: clamp(190px, 24vw, 300px);
+  max-width: 30%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------------- BOTTOM MENU ---------------- */
+
+.menu {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  bottom: 7.5%;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  justify-items: center;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+
+  color: var(--text);
+  text-decoration: none;
+  font-size: clamp(20px, 2vw, 27px);
+  font-weight: 500;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.menu-item img {
+  width: clamp(55px, 7vw, 90px);
+  height: clamp(55px, 7vw, 90px);
+  object-fit: contain;
+  margin-bottom: 2px;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+/* ---------------- SMALL SCREENS ---------------- */
+
+@media (max-width: 700px) {
+  body {
+    background: var(--cream);
+  }
+
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    aspect-ratio: auto;
+  }
+
+  .awning {
+    height: 115px;
+  }
+
+  .hero {
+    top: 115px;
+    height: 48vh;
+  }
+
+  .logo {
+    width: min(58vw, 260px);
+    max-width: none;
+  }
+
+  .menu {
+    left: 5%;
+    right: 5%;
+    bottom: 6%;
+    gap: 4px;
+  }
+
+  .menu-item {
+    font-size: clamp(14px, 4vw, 20px);
+  }
+
+  .menu-item img {
+    width: clamp(45px, 13vw, 72px);
+    height: clamp(45px, 13vw, 72px);
+  }
+}
+
+/* Very narrow phones: make the five items fit comfortably */
+@media (max-width: 430px) {
+  .menu {
+    left: 2%;
+    right: 2%;
+  }
+
+  .menu-item {
+    font-size: 13px;
+  }
+
+  .menu-item img {
+    width: 48px;
+    height: 48px;
+  }
+}
