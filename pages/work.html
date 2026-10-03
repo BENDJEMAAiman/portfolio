@@ -1,247 +1,444 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>work | Part Folio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comfortaa:wght@300..700&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <link rel="stylesheet" href="../css/work.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
 
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Sidebar: identical to about.html except for aria-current, which moved
+    <title>work | Part Folio</title>
+
+    <link rel="preconnect" href="https\://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https\://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https\://fonts.googleapis.com/css2?family=Baloo+2\:wght\@400;500;600;700&family=Comfortaa\:wght\@300..700&family=Gaegu\:wght\@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/sidebar.css" />
+
+    <link rel="stylesheet" href="../css/work.css" />
+  </head>
+
+  <body>
+    <!-- Sidebar: identical to about.html except for aria-current, which moved
+
        from "about" to "work". sidebar.css keys the colour, label and
+
        pointer off that one attribute, so no JavaScript is needed. -->
-  <nav class="sidebar" aria-label="Main navigation">
-    <ul>
-      <li>
-        <a class="nav-item" href="about.html" title="about">
-          <img src="../assets/img/main%20page/about.png" alt="">
-          <span class="nav-label">about</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="work.html" aria-current="page" title="work">
-          <img src="../assets/img/main%20page/work.png" alt="">
-          <span class="nav-label">work</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="links.html" title="links">
-          <img src="../assets/img/main%20page/links.png" alt="">
-          <span class="nav-label">links</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="faq.html" title="faq">
-          <img src="../assets/img/main%20page/faq.png" alt="">
-          <span class="nav-label">faq</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="contact.html" title="contact">
-          <img src="../assets/img/main%20page/contact.png" alt="">
-          <span class="nav-label">contact</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
 
-  <main>
+    <nav class="sidebar" aria-label="Main navigation">
+      <ul>
+        <li>
+          <a class="nav-item" href="about.html" title="about">
+            <img src="../assets/img/main%20page/about.png" alt="" />
 
-    <!-- ============ Hero: title + four category shortcuts ============ -->
-    <section class="band band--hero" aria-labelledby="work-title">
-      <h1 id="work-title">my works</h1>
-      <p class="lead">A collection of projects exploring how research, strategy, and thoughtful design come together to solve real-world challenges.</p>
+            <span class="nav-label">about</span>
+          </a>
+        </li>
 
-      <nav class="cats" aria-label="Project categories">
-        <a class="cat cat--1" href="#product-design">
-          <span class="cat-num">1.</span>
-          <span class="cat-title">Product Design</span>
-          <span class="cat-desc">Web/Mobile Apps, SaaS Dashboard, B2B Products..</span>
-        </a>
-        <a class="cat cat--2" href="#product-redesigns">
-          <span class="cat-num">2.</span>
-          <span class="cat-title">Product Redesigns</span>
-          <span class="cat-desc">UX Audit, Competitive Analysis, Problem Solving..</span>
-        </a>
-        <a class="cat cat--3" href="#brand-experience">
-          <span class="cat-num">3.</span>
-          <span class="cat-title">Brand Experience</span>
-          <span class="cat-desc">Brand Identity, Marketing Design, Rebranding..</span>
-        </a>
-        <a class="cat cat--4" href="#visual-communication">
-          <span class="cat-num">4.</span>
-          <span class="cat-title">Visual Communication</span>
-          <span class="cat-desc">Social Media Posters Illustrations, Creative Direction..</span>
-        </a>
+        <li>
+          <a class="nav-item" href="work.html" aria-current="page" title="work">
+            <img src="../assets/img/main%20page/work.png" alt="" />
 
-        <div class="hero-art" aria-hidden="true">
-          <p class="hero-note">see some of<br>my projects</p>
-          <img class="hero-arrow" src="../assets/img/work/hero-arrow.png" alt="">
-          <img class="hero-bowl" src="../assets/img/work/hero-bowl.png" alt="">
-        </div>
-      </nav>
-    </section>
+            <span class="nav-label">work</span>
+          </a>
+        </li>
 
-    <!-- ============ Projects (blue band) ============ -->
-    <div class="band band--projects">
+        <li>
+          <a class="nav-item" href="links.html" title="links">
+            <img src="../assets/img/main%20page/links.png" alt="" />
 
-      <section id="product-design" aria-labelledby="h-product-design">
-        <h2 id="h-product-design">1. Product Design</h2>
-        <ul class="grid">
-          <li class="case-card">
-            <img class="case-thumb" src="../assets/img/work/case-concoursdoctor.png" alt="ConcoursDoctor platform displayed on a laptop">
-            <div class="case-body">
-              <p class="case-type">Academic Management Platform</p>
-              <h3 class="case-name">ConcoursDoctor</h3>
-              <p class="case-desc">Designing a multi-role platform that streamlines doctoral competition workflows with a clear and accessible user experience.</p>
-              <ul class="tags"><li>Conception</li><li>UX Research</li><li>UI Design</li><li>Dashboard</li><li>Web App</li></ul>
-              <a class="case-link" href="case-study-concoursdoctor.html">View case study</a>
-            </div>
-          </li>
-          <li class="case-card">
-            <img class="case-thumb" src="../assets/img/work/case-readly.png" alt="Readly reading tracker app on two phones">
-            <div class="case-body">
-              <p class="case-type">Reading Habit Tracker</p>
-              <h3 class="case-name">Readly</h3>
-              <p class="case-desc">Designing a beginner-friendly mobile app that helps readers build a daily reading habit, track their books, and save the quotes that matter.</p>
-              <ul class="tags"><li>Conception</li><li>UX Research</li><li>UI Design</li><li>Mobile</li></ul>
-              <a class="case-link" href="case-study-readly.html">View case study</a>
-            </div>
-          </li>
-        </ul>
+            <span class="nav-label">links</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="nav-item" href="faq.html" title="faq">
+            <img src="../assets/img/main%20page/faq.png" alt="" />
+
+            <span class="nav-label">faq</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="nav-item" href="contact.html" title="contact">
+            <img src="../assets/img/main%20page/contact.png" alt="" />
+
+            <span class="nav-label">contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- ============ Hero: title + four category shortcuts ============ -->
+
+      <section class="band band--hero" aria-labelledby="work-title">
+        <h1 id="work-title">my works</h1>
+
+        <p class="lead">
+          A collection of projects exploring how research, strategy, and
+          thoughtful design come together to solve real-world challenges.
+        </p>
+
+        <nav class="cats" aria-label="Project categories">
+          <a class="cat cat--1" href="#product-design">
+            <span class="cat-num">1.</span>
+
+            <span class="cat-title">Product Design</span>
+
+            <span class="cat-desc"
+              >Web/Mobile Apps, SaaS Dashboard, B2B Products..</span
+            >
+          </a>
+
+          <a class="cat cat--2" href="#product-redesigns">
+            <span class="cat-num">2.</span>
+
+            <span class="cat-title">Product Redesigns</span>
+
+            <span class="cat-desc"
+              >UX Audit, Competitive Analysis, Problem Solving..</span
+            >
+          </a>
+
+          <a class="cat cat--3" href="#brand-experience">
+            <span class="cat-num">3.</span>
+
+            <span class="cat-title">Brand Experience</span>
+
+            <span class="cat-desc"
+              >Brand Identity, Marketing Design, Rebranding..</span
+            >
+          </a>
+
+          <a class="cat cat--4" href="#visual-communication">
+            <span class="cat-num">4.</span>
+
+            <span class="cat-title">Visual Communication</span>
+
+            <span class="cat-desc"
+              >Social Media Posters Illustrations, Creative Direction..</span
+            >
+          </a>
+
+          <div class="hero-art" aria-hidden="true">
+            <img
+              class="hero-arrow"
+              src="../assets/img/work/recipe.png"
+              alt=""
+            />
+          </div>
+        </nav>
       </section>
 
-      <section id="product-redesigns" aria-labelledby="h-product-redesigns">
-        <h2 id="h-product-redesigns">2. Product Redesigns</h2>
-        <ul class="grid">
-          <li class="case-card">
-            <img class="case-thumb" src="../assets/img/work/case-dzds.png" alt="Redesigned Digital Services Portal homepage on a laptop">
-            <div class="case-body">
-              <p class="case-type">Digital Services Portal</p>
-              <h3 class="case-name">DZDS</h3>
-              <p class="case-desc">Redesigning Algeria’s national digital services portal to a clearer, more accessible experience for citizens to access administrative services online.</p>
-              <ul class="tags"><li>UI Design</li><li>Web Design</li><li>Mobile</li><li>Redesign</li></ul>
-              <a class="case-link" href="case-study-dzds.html">View case study</a>
-            </div>
-          </li>
-          <li class="case-card">
-            <img class="case-thumb" src="../assets/img/work/case-carpen.png" alt="Carpen furniture e-commerce website with a blue sofa">
-            <div class="case-body">
-              <p class="case-type">Furniture E-commerce Website</p>
-              <h3 class="case-name">Carpen Home</h3>
-              <p class="case-desc">Redesigning a furniture e-commerce website to help customers explore collections, compare pieces, and request a quote with confidence.</p>
-              <ul class="tags"><li>Conception</li><li>UX Research</li><li>UI Design</li><li>Web App</li></ul>
-              <a class="case-link" href="case-study-carpen.html">View case study</a>
-            </div>
-          </li>
-        </ul>
+      <!-- ============ Projects (blue band) ============ -->
+
+      <div class="band band--projects">
+        <section id="product-design" aria-labelledby="h-product-design">
+          <h2 id="h-product-design">1. Product Design</h2>
+
+          <ul class="grid">
+            <li>
+              <article class="case-card">
+                <img
+                  class="case-thumb"
+                  src="../assets/img/work/concour_doctor.png"
+                  alt="ConcoursDoctor platform displayed on a laptop"
+                />
+
+                <div class="case-body">
+                  <p class="case-type">Academic Management Platform</p>
+
+                  <h3 class="case-name">ConcoursDoctor</h3>
+
+                  <p class="case-desc">
+                    Designing a multi-role platform that streamlines doctoral
+                    competition workflows with a clear and accessible user
+                    experience.
+                  </p>
+
+                  <ul class="tags">
+                    <li>Conception</li>
+                    <li>UX Research</li>
+                    <li>UI Design</li>
+                    <li>Dashboard</li>
+                    <li>Web App</li>
+                  </ul>
+
+                  <a class="case-link" href="case-study-concoursdoctor.html"
+                    >View case study</a
+                  >
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="case-card">
+                <img
+                  class="case-thumb"
+                  src="../assets/img/work/readly.png"
+                  alt="Readly reading tracker app on two phones"
+                />
+
+                <div class="case-body">
+                  <p class="case-type">Reading Habit Tracker</p>
+
+                  <h3 class="case-name">Readly</h3>
+
+                  <p class="case-desc">
+                    Designing a beginner-friendly mobile app that helps readers
+                    build a daily reading habit, track their books, and save the
+                    quotes that matter.
+                  </p>
+
+                  <ul class="tags">
+                    <li>Conception</li>
+                    <li>UX Research</li>
+                    <li>UI Design</li>
+                    <li>Mobile</li>
+                  </ul>
+
+                  <a class="case-link" href="case-study-readly.html"
+                    >View case study</a
+                  >
+                </div>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <section id="product-redesigns" aria-labelledby="h-product-redesigns">
+          <h2 id="h-product-redesigns">2. Product Redesigns</h2>
+
+          <ul class="grid">
+            <li>
+              <article class="case-card">
+                <img
+                  class="case-thumb"
+                  src="../assets/img/work/digital_service_portal.png"
+                  alt="Redesigned Digital Services Portal homepage on a laptop"
+                />
+
+                <div class="case-body">
+                  <p class="case-type">Digital Services Portal</p>
+
+                  <h3 class="case-name">DZDS</h3>
+
+                  <p class="case-desc">
+                    Redesigning Algeria’s national digital services portal to a
+                    clearer, more accessible experience for citizens to access
+                    administrative services online.
+                  </p>
+
+                  <ul class="tags">
+                    <li>UI Design</li>
+                    <li>Web Design</li>
+                    <li>Mobile</li>
+                    <li>Redesign</li>
+                  </ul>
+
+                  <a class="case-link" href="case-study-dzds.html"
+                    >View case study</a
+                  >
+                </div>
+              </article>
+            </li>
+
+            <li>
+              <article class="case-card">
+                <img
+                  class="case-thumb"
+                  src="../assets/img/work/carpen.png"
+                  alt="Carpen furniture e-commerce website with a blue sofa"
+                />
+
+                <div class="case-body">
+                  <p class="case-type">Furniture E-commerce Website</p>
+
+                  <h3 class="case-name">Carpen Home</h3>
+
+                  <p class="case-desc">
+                    Redesigning a furniture e-commerce website to help customers
+                    explore collections, compare pieces, and request a quote
+                    with confidence.
+                  </p>
+
+                  <ul class="tags">
+                    <li>Conception</li>
+                    <li>UX Research</li>
+                    <li>UI Design</li>
+                    <li>Web App</li>
+                  </ul>
+
+                  <a class="case-link" href="case-study-carpen.html"
+                    >View case study</a
+                  >
+                </div>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <section id="brand-experience" aria-labelledby="h-brand-experience">
+          <h2 id="h-brand-experience">3. Brand Experience</h2>
+
+          <ul class="grid">
+            <li>
+              <article class="case-card">
+                <img
+                  class="case-thumb"
+                  src="../assets/img/work/rihla.png"
+                  alt="Rihla travel platform logo on a blue gradient"
+                />
+
+                <div class="case-body">
+                  <p class="case-type">Travel &amp; Tourism Platform</p>
+
+                  <h3 class="case-name">Rihla</h3>
+
+                  <p class="case-desc">
+                    Connecting travelers with authentic Algerian experiences
+                    through seamless trip planning, booking, and local
+                    discovery.
+                  </p>
+
+                  <ul class="tags">
+                    <li>Branding</li>
+                    <li>UX Research</li>
+                    <li>UI Design</li>
+                    <li>Dashboard</li>
+                    <li>Web App</li>
+                    <li>Mobile</li>
+                  </ul>
+
+                  <a class="case-link" href="case-study-rihla.html"
+                    >View case study</a
+                  >
+                </div>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <section
+          id="visual-communication"
+          aria-labelledby="h-visual-communication"
+        >
+          <h2 id="h-visual-communication">4. Visual Communication</h2>
+
+          <h3 class="subhead">Posters For The INGENIUMS Club</h3>
+
+          <!-- The carousel dots and like/comment/share icons are drawn by .post::after (decorative) -->
+
+          <ul class="grid grid--posts">
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster.png"
+                alt="Poster: an hourglass reading “Hurry up, 24 hours left”"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster1.png"
+                alt="Poster: a dragon over a throne reading “Five kings, one throne”"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster2.png"
+                alt="Poster: a wolf silhouette reading “When you play Ingeneer, you win or you die”"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster3.png"
+                alt="Sponsor poster: Elite Campus on a golden shield"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster4.png"
+                alt="Sponsor poster: Le Repère on a silver shield"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster5.png"
+                alt="Sponsor poster: Confort PC on a stone shield"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster6.png"
+                alt="Poster: “Registrations are open” with a light through a door"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster7.png"
+                alt="Poster: “Hurry up, 24h left” with a pocket watch in red mist"
+                loading="lazy"
+              />
+            </li>
+
+            <li class="post">
+              <img
+                src="../assets/img/work/visual_communication/poster8.png"
+                alt="Poster: “Registrations are closed” with a door in a green forest"
+                loading="lazy"
+              />
+            </li>
+          </ul>
+
+          <figure class="panel panel--feature">
+            <img
+              src="../assets/img/work/visual_communication/welcome_day.png"
+              alt="The Welcome Day poster, October 10th, 1PM, Amphi D, mounted on a stone wall"
+              loading="lazy"
+            />
+          </figure>
+
+          <h3 class="subhead">My illustrations</h3>
+
+          <div class="panel panel--gallery">
+            <img
+              src="../assets/img/work/illustration.png"
+              alt="Character waving, with a navy bag over her shoulder"
+            />
+          </div>
+        </section>
+      </div>
+
+      <!-- ============ Closing call to action ============ -->
+
+      <section class="band band--cta" aria-labelledby="cta-title">
+        <h2 id="cta-title">Like What You See?</h2>
+
+        <p>
+          These are just a few examples of my work. Let’s discuss how I can help
+          with your project.
+        </p>
+
+        <a class="btn btn--arrow" href="contact.html">Get in Touch</a>
       </section>
-
-      <section id="brand-experience" aria-labelledby="h-brand-experience">
-        <h2 id="h-brand-experience">3. Brand Experience</h2>
-        <ul class="grid">
-          <li class="case-card">
-            <img class="case-thumb" src="../assets/img/work/case-rihla.png" alt="Rihla travel platform logo on a blue gradient">
-            <div class="case-body">
-              <p class="case-type">Travel &amp; Tourism Platform</p>
-              <h3 class="case-name">Rihla</h3>
-              <p class="case-desc">Connecting travelers with authentic Algerian experiences through seamless trip planning, booking, and local discovery.</p>
-              <ul class="tags"><li>Branding</li><li>UX Research</li><li>UI Design</li><li>Dashboard</li><li>Web App</li><li>Mobile</li></ul>
-              <a class="case-link" href="case-study-rihla.html">View case study</a>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <section id="visual-communication" aria-labelledby="h-visual-communication">
-        <h2 id="h-visual-communication">4. Visual Communication</h2>
-
-        <h3 class="subhead">Posters For The INGENIUMS Club</h3>
-        <!-- The carousel dots and like/comment/share icons are drawn by .post::after (decorative) -->
-        <ul class="grid grid--posts">
-          <li class="post"><img src="../assets/img/work/poster-hurry-up.png" alt="Poster: an hourglass reading “Hurry up, 24 hours left”" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-five-kings.png" alt="Poster: a dragon over a throne reading “Five kings, one throne”" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-ingeneer.png" alt="Poster: a wolf silhouette reading “When you play Ingeneer, you win or you die”" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-sponsor-elite-campus.png" alt="Sponsor poster: Elite Campus on a golden shield" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-sponsor-le-repere.png" alt="Sponsor poster: Le Repère on a silver shield" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-sponsor-confort-pc.png" alt="Sponsor poster: Confort PC on a stone shield" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-registrations-open.png" alt="Poster: “Registrations are open” with a light through a door" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-hurry-up-24h.png" alt="Poster: “Hurry up, 24h left” with a pocket watch in red mist" loading="lazy"></li>
-          <li class="post"><img src="../assets/img/work/poster-registrations-closed.png" alt="Poster: “Registrations are closed” with a door in a green forest" loading="lazy"></li>
-        </ul>
-
-        <figure class="panel panel--feature">
-          <img src="../assets/img/work/poster-welcome-day.jpg" alt="The Welcome Day poster, October 10th, 1PM, Amphi D, mounted on a stone wall" loading="lazy">
-        </figure>
-
-        <h3 class="subhead">My illustrations</h3>
-        <div class="panel panel--gallery">
-
-          <h4 class="gal-title">My character illustration</h4>
-
-          <h5 class="version"><b>1st</b> version</h5>
-          <div class="version-row">
-            <ul class="swatches" aria-label="Colour palette, first version">
-              <li style="--c:#7f5440"></li><li style="--c:#aa7556"></li><li style="--c:#bfaa80"></li>
-              <li style="--c:#d9c09a"></li><li style="--c:#f4bfc0"></li><li style="--c:#f9d4d6"></li>
-            </ul>
-            <div class="row-art">
-              <img src="../assets/img/work/char-v1-1.png" alt="Character waving, with a navy bag over her shoulder">
-              <img src="../assets/img/work/char-v1-2.png" alt="Character walking mid-stride, one arm raised">
-              <img src="../assets/img/work/char-v1-3.png" alt="Character standing, arms relaxed">
-            </div>
-          </div>
-
-          <h5 class="version"><b>2nd</b> version</h5>
-          <div class="version-row">
-            <!-- Only two swatches were visible in the screenshots: add the rest as <li style="--c:#hex"> -->
-            <ul class="swatches" aria-label="Colour palette, second version">
-              <li style="--c:#8e5a37"></li><li style="--c:#e0c79d"></li>
-            </ul>
-            <div class="row-art">
-              <img src="../assets/img/work/char-v2-1.png" alt="Second version character, bust, arms open">
-              <img src="../assets/img/work/char-v2-2.png" alt="Second version character, bust, looking aside">
-              <img src="../assets/img/work/char-v2-3.png" alt="Second version character, bust, leaning forward">
-              <img src="../assets/img/work/char-v2-4.png" alt="Second version character, bust, side view">
-            </div>
-          </div>
-
-          <h4 class="gal-title">pipi character illustrations for the readly mobile app</h4>
-          <div class="row-art row-art--5">
-            <img src="../assets/img/work/pipi-1.png" alt="Pipi the chick reading a blue book">
-            <img src="../assets/img/work/pipi-2.png" alt="Pipi writing on a note">
-            <img src="../assets/img/work/pipi-3.png" alt="Pipi next to a stack of books">
-            <img src="../assets/img/work/pipi-4.png" alt="Pipi beside a flame, a reading streak">
-            <img src="../assets/img/work/pipi-5.png" alt="Pipi with a tangled thought bubble">
-          </div>
-          <div class="row-art row-art--5">
-            <img src="../assets/img/work/pipi-book-1.png" alt="An empty open book">
-            <img src="../assets/img/work/pipi-book-2.png" alt="An open book with a chick about to hatch">
-            <img src="../assets/img/work/pipi-book-3.png" alt="Pipi peeking out of an open book">
-            <img src="../assets/img/work/pipi-book-4.png" alt="Pipi rising from an open book">
-            <img src="../assets/img/work/pipi-book-5.png" alt="Pipi settled in an open book">
-          </div>
-
-          <h4 class="gal-title">personal creations</h4>
-          <img class="personal" src="../assets/img/work/personal-creation.png" alt="Illustration of a woman with dark hair and golden tears running from her eyes" loading="lazy">
-        </div>
-      </section>
-
-    </div>
-
-    <!-- ============ Closing call to action ============ -->
-    <section class="band band--cta" aria-labelledby="cta-title">
-      <h2 id="cta-title">Like What You See?</h2>
-      <p>These are just a few examples of my work. Let’s discuss how I can help with your project.</p>
-      <a class="btn btn--arrow" href="contact.html">Get in Touch</a>
-    </section>
-
-  </main>
-</body>
+    </main>
+  </body>
 </html>
