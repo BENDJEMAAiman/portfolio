@@ -77,26 +77,25 @@
 }
 
 /* ---------- Label ----------
-   Hidden visually on inactive items but still read by screen
-   readers (the "visually hidden" pattern). It is revealed only
-   on the current page, as in the design. */
+   Positioned under the icon but taken out of the flow, so showing it
+   never pushes the other icons around. It fades in for the current
+   page and on hover or keyboard focus. opacity (unlike display:none)
+   keeps the text available to screen readers. */
 .nav-label {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 
+.nav-item:hover .nav-label,
+.nav-item:focus-visible .nav-label,
 .nav-item[aria-current="page"] .nav-label {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip-path: none;
+  opacity: 1;
 }
 
 /* ---------- Active pointer ----------

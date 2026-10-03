@@ -1,0 +1,479 @@
+/* ==========================================================
+   work.css: the work page
+   Loaded after sidebar.css (which defines --sidebar-w, --yellow,
+   --text). Sizes are measured from the Figma screenshots and
+   are approximate: confirm them in Figma's Inspect panel.
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #fff5e5;
+  --blue: #eef6ff;
+  --card: #fff4e1;
+  --panel: #fdf7e1;
+  --line: #fbe19a;           /* thin yellow outlines */
+  --highlight: #fee08b;
+  --slate: #6e6f7d;          /* headings on the blue band */
+  --muted: #7f7d88;          /* body copy */
+  --font: "Comfortaa", sans-serif;
+  --hand: "Gaegu", cursive;
+
+  --pad-r: 69px;
+  --pad-l: calc(var(--sidebar-w, 124px) + 69px);   /* clears the fixed sidebar */
+}
+
+html { scroll-padding-top: 24px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }   /* category links glide to their section */
+}
+
+body {
+  background: var(--blue);
+  color: var(--muted);
+  font: 400 15px/1.5 var(--font);
+}
+
+ul { list-style: none; }
+a  { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+a:focus-visible {
+  outline: 3px solid var(--yellow, #ffd980);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* ---------- Bands ----------
+   Each band is full-bleed (so its colour also fills the sidebar
+   zone) and carries the padding that reserves room for the bar. */
+.band {
+  padding-inline: var(--pad-l) var(--pad-r);
+}
+
+.band--hero {
+  background: var(--cream);
+  padding-block: 40px 80px;
+  text-align: center;
+}
+
+.band--projects {
+  background: var(--blue);
+  padding-block: 60px 70px;
+}
+
+.band--cta {
+  background: var(--cream);
+  padding-block: 50px 90px;
+  text-align: center;
+}
+
+/* ---------- Hero ---------- */
+h1 {
+  font: 500 38px/1.2 var(--font);
+  color: var(--text, #965d33);
+}
+
+.lead {
+  max-width: 1150px;
+  margin: 10px auto 56px;
+  font: 300 23px/1.4 var(--font);
+  text-wrap: balance;
+}
+
+/* Grid areas let the DOM order stay logical (1, 2, 3, 4, then art)
+   while the layout staggers the items around the centre bowl. */
+.cats {
+  display: grid;
+  grid-template-columns: 30% 1fr 32%;
+  column-gap: 2rem;
+  row-gap: 90px;
+  text-align: left;
+}
+
+.cat--1 { grid-area: 1 / 1; }
+.cat--2 { grid-area: 2 / 1; }
+.cat--3 { grid-area: 1 / 3; }
+.cat--4 { grid-area: 2 / 3; }
+.hero-art { grid-area: 1 / 2 / 3 / 3; }
+
+.cat {
+  position: relative;          /* anchor for the number circle */
+  margin-left: 34px;
+  padding: 20px 14px 20px 42px;
+  background: var(--blue);
+  color: var(--slate);
+  transition: transform 0.2s ease;
+}
+
+.cat:hover { transform: translateY(-4px); }
+
+/* The circle straddles the box's left edge, aligned with its top. */
+.cat-num {
+  position: absolute;
+  top: 0;
+  left: -34px;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--yellow, #ffd980);
+  font: 700 30px/1 var(--font);
+  color: var(--text, #965d33);
+}
+
+.cat-title {
+  display: block;
+  margin-bottom: 4px;
+  font: 600 21px/1.25 var(--font);
+}
+
+.cat-desc {
+  display: block;
+  font: 500 15px/1.35 var(--font);
+}
+
+.hero-art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hero-note {
+  font: 700 24px/1.1 var(--hand);
+  color: #f6d672;
+  transform: rotate(-4deg);
+}
+
+.hero-arrow { width: 62px; }
+.hero-bowl  { width: min(100%, 250px); }
+
+/* ---------- Project groups ---------- */
+.band--projects section + section {
+  margin-top: 56px;
+}
+
+h2 {
+  margin-bottom: 40px;
+  font: 700 34px/1.2 var(--font);
+  color: var(--slate);
+}
+
+.subhead {
+  margin-bottom: 30px;
+  font: 400 28px/1.2 var(--font);
+  color: var(--slate);
+}
+
+/* One 3-column grid serves case cards AND posters, so their edges
+   line up. A percentage gap is relative to the grid's width. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 38px 5.8%;
+  align-items: stretch;
+}
+
+/* ---------- Case-study card ---------- */
+.case-card {
+  position: relative;            /* containing block for the stretched link */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;              /* clips the thumbnail to the rounded corners */
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 22px;
+  transition: transform 0.2s ease;
+}
+
+.case-card:hover { transform: translateY(-4px); }
+
+.case-card:has(.case-link:focus-visible) {
+  outline: 3px solid var(--yellow, #ffd980);
+  outline-offset: 4px;
+}
+
+.case-thumb {
+  width: 100%;
+  aspect-ratio: 338 / 232;
+  object-fit: cover;
+}
+
+.case-body {
+  flex: 1;                        /* equal-height cards: the link sinks to the bottom */
+  display: flex;
+  flex-direction: column;
+  padding: 14px 10px 14px;
+}
+
+.case-type,
+.case-name {
+  font: 600 15px/1.4 var(--font);
+  color: var(--slate);
+}
+
+.case-name { margin: 8px 0 4px; }
+
+.case-desc {
+  font: 400 15px/1.5 var(--font);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 18px;
+}
+
+.tags li {
+  padding: 3px 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font: 400 13px/1.4 var(--font);
+}
+
+/* Arrows are drawn with a mask: the SVG is a stencil and the visible
+   colour is background-color: currentColor, so it follows the text
+   colour, including the hover state. */
+.case-link,
+.btn--arrow {
+  --arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M13 5l7 7-7 7'/%3E%3C/svg%3E");
+}
+
+.case-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 15px/1.4 var(--font);
+  color: var(--slate);
+}
+
+.case-link::before {
+  content: "";
+  order: 2;
+  width: 15px;
+  height: 15px;
+  background: currentColor;
+  -webkit-mask: var(--arrow) center / contain no-repeat;
+          mask: var(--arrow) center / contain no-repeat;
+  transition: transform 0.2s ease;
+}
+
+/* Stretched link: this invisible layer covers the whole card, so
+   the entire card is clickable while the DOM keeps ONE link. */
+.case-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.case-card:hover .case-link::before { transform: translateX(4px); }
+
+/* ---------- Poster cards (social-post mock-up) ---------- */
+.post {
+  padding: 10px 10px 0;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 44px;
+}
+
+.post img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 32px;
+}
+
+/* Decorative: 4 carousel dots (2nd active) + heart, comment, share,
+   as one inline SVG. Being a background, it adds nothing to the DOM
+   or to the accessibility tree. */
+.post::after {
+  content: "";
+  display: block;
+  height: 70px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 56'%3E%3Cg fill='%23e3e9f2'%3E%3Ccircle cx='29' cy='5' r='3'/%3E%3Ccircle cx='57' cy='5' r='3'/%3E%3Ccircle cx='71' cy='5' r='3'/%3E%3C/g%3E%3Ccircle cx='43' cy='5' r='3' fill='%2399aac4'/%3E%3Cg fill='%23fdd57d'%3E%3Cpath d='M18 44L9.5 35.5A5 5 0 0 1 18 29.2A5 5 0 0 1 26.5 35.5Z'/%3E%3Ccircle cx='52' cy='36' r='9'/%3E%3Cpath d='M72 29L94 26L83 44L80 36Z'/%3E%3C/g%3E%3C/svg%3E")
+    center 8px / 100px 56px no-repeat;
+}
+
+/* ---------- Panels (cream rounded containers) ---------- */
+.panel {
+  width: 89.6%;
+  margin: 60px auto 70px;
+  background: var(--panel);
+  border-radius: 45px;
+}
+
+.panel--feature {
+  padding: 28px 35px;
+  background: var(--card);
+}
+
+.panel--feature img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.panel--gallery {
+  margin-top: 0;
+  padding: 50px 70px 60px;
+}
+
+.gal-title {
+  margin: 44px 0 20px;
+  font: 600 24px/1.3 var(--font);
+  color: var(--slate);
+}
+
+.gal-title:first-child { margin-top: 0; }
+
+/* "1st version": a marker-pen band behind the lower part of the text */
+.version {
+  width: fit-content;
+  margin: 8px 0 26px;
+  font: 400 24px/1.3 var(--font);
+  color: var(--slate);
+  background: linear-gradient(transparent 62%, var(--highlight) 62%, var(--highlight) 92%, transparent 92%);
+}
+
+.version b {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.version-row {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  column-gap: 6%;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.swatches li {
+  width: 54px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+/* Equal-width columns, art sitting on a common baseline.
+   grid-auto-flow: column adapts to 3, 4 or 5 images. */
+.row-art {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: end;
+  justify-items: center;
+  gap: 16px;
+}
+
+.row-art img {
+  width: auto;
+  max-height: 340px;
+}
+
+.row-art--5 { margin-bottom: 36px; }
+.row-art--5 img { width: 100%; max-height: 190px; object-fit: contain; }
+
+.personal {
+  width: min(100%, 282px);
+  border-radius: 28px;
+}
+
+/* ---------- Closing call to action ---------- */
+.band--cta h2 {
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 32px;
+}
+
+.band--cta p {
+  margin-bottom: 44px;
+  font: 300 22px/1.4 var(--font);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 20px;
+  font: 400 32px/1.2 var(--font);
+  color: var(--text, #965d33);
+  background: #fff1d2;
+  border: 3px solid var(--highlight);
+  border-radius: 18px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background: var(--highlight);
+}
+
+.btn--arrow::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background: currentColor;
+  -webkit-mask: var(--arrow) center / contain no-repeat;
+          mask: var(--arrow) center / contain no-repeat;
+}
+
+/* ---------- Narrower screens ---------- */
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .cats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+  .cat--1 { grid-area: 1 / 1; }
+  .cat--2 { grid-area: 1 / 2; }
+  .cat--3 { grid-area: 2 / 1; }
+  .cat--4 { grid-area: 2 / 2; }
+  .hero-art { grid-area: 3 / 1 / 4 / 3; }
+
+  .panel--gallery { padding: 36px 32px 44px; }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --sidebar-w: 72px;            /* overrides sidebar.css (loaded earlier) */
+    --pad-l: calc(var(--sidebar-w) + 16px);
+    --pad-r: 16px;
+  }
+
+  h1 { font-size: 30px; }
+  h2 { font-size: 26px; }
+  .lead { font-size: 18px; }
+
+  .grid,
+  .cats { grid-template-columns: 1fr; }
+  .cat--1, .cat--2, .cat--3, .cat--4 { grid-area: auto; }
+  .hero-art { grid-area: auto; }
+
+  .panel { width: 100%; border-radius: 30px; }
+  .panel--feature { padding: 14px; }
+  .panel--gallery { padding: 28px 18px 36px; }
+
+  .version-row { grid-template-columns: 1fr; row-gap: 16px; }
+  .swatches { display: flex; gap: 8px; }
+  .swatches li { margin: 0; width: 40px; height: 30px; }
+  .row-art { gap: 8px; }
+
+  .btn { font-size: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat, .case-card, .btn, .case-link::before { transition: none; }
+}
