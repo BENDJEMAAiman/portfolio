@@ -1,0 +1,116 @@
+/* ==========================================================
+   sidebar.css — fixed vertical navigation
+   Sizes are measured from the Figma screenshots (1280px frame)
+   and are approximations: confirm them in Figma's Inspect panel.
+   ========================================================== */
+
+:root {
+  --sidebar-w: 124px;   /* horizontal space reserved for the bar */
+  --yellow: #ffd980;    /* pointer triangle */
+  --text: #965d33;      /* label colour (same as style.css) */
+}
+
+/* ---------- The bar ----------
+   position: fixed removes the element from normal flow and pins it
+   to the viewport, so it stays in place while the page scrolls.
+   Because it no longer takes up space, the content must reserve
+   it manually (see .content in about.css).
+   Pitfall: an ancestor with transform, filter, perspective,
+   contain or will-change becomes the containing block of a fixed
+   element, and it then scrolls with the page. Keep <body> and
+   wrappers free of those properties. */
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;        /* top right bottom left */
+  z-index: 10;              /* always paint above positioned page content */
+  width: var(--sidebar-w);
+  padding-top: clamp(16px, 14vh, 120px);  /* ~14% down, but never off-screen */
+  display: flex;
+  justify-content: center;  /* centres the list horizontally */
+  align-items: flex-start;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 5.5vh, 44px);          /* shrinks on short windows */
+}
+
+/* ---------- One item ----------
+   position: relative makes the item the anchor for its ::after
+   pointer, which is positioned with absolute coordinates. */
+.nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--text);
+  text-decoration: none;
+  font: 500 15px/1 "Baloo 2", sans-serif;
+  transition: transform 0.2s ease;
+}
+
+.nav-item img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  filter: grayscale(1);               /* inactive = grey */
+  transition: filter 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-4px);        /* same lift as the home menu */
+}
+
+.nav-item:hover img,
+.nav-item[aria-current="page"] img {
+  filter: none;                       /* hover / active = full colour */
+}
+
+.nav-item:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+/* ---------- Label ----------
+   Hidden visually on inactive items but still read by screen
+   readers (the "visually hidden" pattern). It is revealed only
+   on the current page, as in the design. */
+.nav-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.nav-item[aria-current="page"] .nav-label {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip-path: none;
+}
+
+/* ---------- Active pointer ----------
+   An inline SVG (as a data URI) lets us round the corners, which
+   border/clip-path triangles can't do. stroke-linejoin="round"
+   with a stroke the same colour as the fill softens the vertices. */
+.nav-item[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 20px);   /* 20px right of the item's edge */
+  top: 50%;
+  width: 18px;
+  height: 22px;
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 20'%3E%3Cpath d='M12 3 3 10l9 7z' fill='%23ffd980' stroke='%23ffd980' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
