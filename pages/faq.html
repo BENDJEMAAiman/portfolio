@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>faq | Part Folio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comfortaa:wght@300..700&family=Gaegu:wght@400;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/faq.css">
+</head>
+
+<body>
+
+  <!-- Sidebar: same markup as the other pages; aria-current is now on "faq" -->
+  <nav class="sidebar" aria-label="Main navigation">
+    <ul>
+      <li>
+        <a class="nav-item" href="about.html" title="about">
+          <img src="../assets/img/main%20page/about.png" alt="">
+          <span class="nav-label">about</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-item" href="work.html" title="work">
+          <img src="../assets/img/main%20page/work.png" alt="">
+          <span class="nav-label">work</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-item" href="links.html" title="links">
+          <img src="../assets/img/main%20page/links.png" alt="">
+          <span class="nav-label">links</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-item" href="faq.html" aria-current="page" title="faq">
+          <img src="../assets/img/main%20page/faq.png" alt="">
+          <span class="nav-label">faq</span>
+        </a>
+      </li>
+      <li>
+        <a class="nav-item" href="contact.html" title="contact">
+          <img src="../assets/img/main%20page/contact.png" alt="">
+          <span class="nav-label">contact</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="faq-page">
+
+    <header class="intro">
+      <h1>Frequently asked questions</h1>
+      <p>A few things people often ask before we work together.</p>
+    </header>
+
+    <!-- Decorative cake slice in the corner -->
+    <div class="deco" aria-hidden="true">
+      <img src="../assets/img/faq/deco.png" alt="">
+    </div>
+
+    <!-- Accordion built on <details>: keyboard support and screen-reader
+         semantics come for free. faq.js adds the slide animation and makes
+         opening one item close the others. Without JavaScript the items
+         still work, they just open instantly and independently.
+         The three card styles repeat in CSS (nth-child), so you can add or
+         remove questions without touching any class. -->
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Are you available for freelance or internships?</summary>
+        <div class="answer">
+          <p>Absolutely! I’m currently open to internships, freelance projects, and exciting collaborations. If you think we’d make a great team, feel free to reach out.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can you work remotely?</summary>
+        <div class="answer">
+          <p>Yes! I’m based in Algeria, but I’m happy to collaborate remotely with teams and clients from anywhere.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you only design UI?</summary>
+        <div class="answer">
+          <p>Not at all. While UI/UX is my main focus, I also enjoy working on branding, visual identity, illustrations, and creating cohesive digital experiences.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What’s the best way to contact you?</summary>
+        <div class="answer">
+          <p>The fastest way is through LinkedIn or email. I check LinkedIn regularly, so that’s usually where you’ll get the quickest response.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I see the full case study for a project?</summary>
+        <div class="answer">
+          <p>Of course! Every featured project includes a detailed case study covering the problem, process, design decisions, and final outcome.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What’s your favorite part of the design process?</summary>
+        <div class="answer">
+          <p>Turning a rough idea into something people can actually use and enjoy. Seeing everything come together is always the most rewarding part.</p>
+        </div>
+      </details>
+
+    </div>
+  </main>
+
+  <script src="../js/faq.js" defer></script>
+</body>
+</html>
