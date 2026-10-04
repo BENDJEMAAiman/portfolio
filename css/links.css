@@ -1,0 +1,322 @@
+/* ==========================================================
+   links.css: the links page
+   Loaded after sidebar.css.
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #fff5e5;
+  --slate: #6e6f7d;
+  --arrow: #c98a50;
+  --label: #cd8b4a;
+  --hint: #fde58c;
+  --font: "Comfortaa", sans-serif;
+  --hand: "Gaegu", cursive;
+
+  --pad-r: 69px;
+  --pad-l: calc(var(--sidebar-w, 124px) + 69px);
+
+  /* The artwork scales from the cake's width. */
+  --cake-w: clamp(220px, 24.8vw, 380px);
+}
+
+body {
+  background: var(--cream);
+  color: var(--slate);
+  font: 400 15px/1.5 var(--font);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--yellow, #ffd980);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* Visually hidden, still announced by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Page shell ---------- */
+
+.links-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 40px var(--pad-r) 40px var(--pad-l);
+  overflow: hidden;
+}
+
+/* ---------- Decorative frame ---------- */
+/*
+  Keep fram.png proportional instead of stretching it across
+  the whole page. Adjust width/top/right to fine-tune placement.
+*/
+.page-frame {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  top: 175px;
+  right: 730px;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Keep page content above the decorative frame. */
+.links-page > .intro,
+.links-page > .carousel {
+  position: relative;
+  z-index: 1;
+}
+
+.intro {
+  text-align: center;
+}
+
+h1 {
+  font: 500 38px/1.2 var(--font);
+  color: var(--text, #965d33);
+}
+
+.intro p {
+  margin-top: 10px;
+  font: 400 21px/1.4 var(--font);
+}
+
+/*
+  The carousel takes the remaining height and centres its content.
+  Padding-top reserves room for the piping bag and label.
+*/
+.carousel {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding-top: calc(var(--cake-w) * 0.5);
+  padding-bottom: 9vh;
+}
+
+/* ---------- Arrow | artwork | arrow ---------- */
+
+.row {
+  display: grid;
+  grid-template-columns: auto var(--cake-w) auto;
+  align-items: center;
+  column-gap: calc(var(--cake-w) * 0.2);
+}
+
+.art {
+  position: relative;
+  touch-action: pan-y;
+}
+
+/* Without JS, slides stack. With JS, they overlap in one grid cell. */
+.slide {
+  position: relative;
+}
+
+.carousel[data-ready] .slides {
+  display: grid;
+}
+
+.carousel[data-ready] .slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0s linear 0.35s;
+}
+
+.carousel[data-ready] .slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.slide a {
+  display: block;
+}
+
+.cake {
+  width: 100%;
+  transition: transform 0.25s ease;
+}
+
+.slide a:hover .cake {
+  transform: translateY(-6px) rotate(-1deg);
+}
+
+/* The label's right edge stays anchored as the word changes length. */
+.slide-label {
+  position: absolute;
+  left: calc(var(--cake-w) * 0.296);
+  top: calc(var(--cake-w) * -0.19);
+  z-index: 1;
+  transform: translateX(-100%) rotate(var(--tilt, -4deg));
+  transform-origin: right center;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: calc(var(--cake-w) * 0.12);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--label);
+}
+
+.bag {
+  position: absolute;
+  left: calc(var(--cake-w) * 0.38);
+  top: calc(var(--cake-w) * -0.455);
+  width: calc(var(--cake-w) * 0.405);
+  pointer-events: none;
+}
+
+/* ---------- "click to scroll" decoration ---------- */
+
+.hint {
+  position: absolute;
+  left: calc(var(--cake-w) * 1.3);
+  top: calc(var(--cake-w) * -0.05);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* click_to_scroll.png is displayed as one complete decoration. */
+.hint-arrow {
+  width: calc(var(--cake-w) * 0.55);
+  max-width: none;
+  height: auto;
+}
+
+.hint-text {
+  position: absolute;
+  left: calc(var(--cake-w) * 0.16);
+  top: calc(var(--cake-w) * 0.03);
+  font-family: var(--hand);
+  font-size: calc(var(--cake-w) * 0.075);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--hint);
+}
+
+/* ---------- Prev / next buttons ---------- */
+
+.arrow {
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--arrow);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.arrow svg {
+  display: block;
+  width: 33px;
+  height: 41px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 8;
+  stroke-linejoin: round;
+}
+
+/* The next arrow is the previous arrow mirrored horizontally. */
+.arrow--next svg {
+  transform: scaleX(-1);
+}
+
+.arrow:hover {
+  color: #b5763b;
+  transform: scale(1.1);
+}
+
+.arrow:active {
+  transform: scale(0.95);
+}
+
+.carousel:not([data-ready]) .arrow,
+.carousel:not([data-ready]) .hint {
+  display: none;
+}
+
+/* ---------- Narrower screens ---------- */
+
+@media (max-width: 900px) {
+  .hint {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --sidebar-w: 72px;
+    --pad-l: calc(var(--sidebar-w) + 16px);
+    --pad-r: 16px;
+    --cake-w: min(52vw, 260px);
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .intro p {
+    font-size: 17px;
+  }
+
+  .row {
+    column-gap: calc(var(--cake-w) * 0.08);
+  }
+
+  .arrow {
+    padding: 4px;
+  }
+
+  .arrow svg {
+    width: 26px;
+    height: 32px;
+  }
+
+  .page-frame {
+    width: 400px;
+    top: 20px;
+    right: -80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel[data-ready] .slide,
+  .cake,
+  .arrow {
+    transition: none;
+  }
+}
