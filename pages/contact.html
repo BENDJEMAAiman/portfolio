@@ -58,26 +58,14 @@
 
     <div class="contact-grid">
 
-      <!-- The dashed route is a PNG, and a PNG cannot be "drawn" the way an SVG stroke can.
-           So the PNG is revealed through a mask: a thick invisible stroke that follows the
-           arrow's centre-line and grows from its start to its end (see contact.css).
-           To check the alignment, add class="debug" to this <svg>: the mask path shows in red. -->
-      <svg class="route" viewBox="0 0 740 562" aria-hidden="true" focusable="false">
-        <defs>
-          <path id="route-path" pathLength="1" d="M1 3 L23 1 L48 5 L71 19 L86 45 L95 85 L99 130 L97 175 L89 215 L81 255 L73 295 L70 335 L74 380 L88 420 L113 455 L148 487 L188 503 L223 506 L258 498 L293 479 L328 453 L363 420 L395 380 L418 335 L426 285 L413 245 L383 224 L355 220 L323 231 L295 255 L275 295 L266 340 L267 380 L281 420 L308 460 L348 490 L403 515 L463 529 L523 531 L583 518 L633 503 L673 496 L708 505 L730 527 L737 557"/>
-          <mask id="route-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="740" height="562">
-            <use class="route-reveal" href="#route-path"/>
-          </mask>
-        </defs>
-        <image href="../assets/img/contact/arrow.png" x="0" y="0" width="740" height="562"
-               preserveAspectRatio="none" mask="url(#route-reveal)"/>
-        <use class="route-debug" href="#route-path"/>
-      </svg>
+      <!-- The dashed route between the delivery man and the house is an <svg> that
+           js/route.js builds and draws here, so it always joins the two pictures wherever
+           they end up on screen. -->
 
       <!-- Left: contact details -->
       <div class="info">
         <div class="cards">
-          <img class="delivery" src="../assets/img/contact/delivery-man.png" alt="">
+          <img class="delivery" src="../assets/img/contact/dilevery man.png" alt="">
 
           <article class="card">
             <h2>email</h2>
@@ -149,6 +137,7 @@
 
   </main>
 
+  <script src="../js/path.js" defer></script>
   <script src="../js/contact.js" defer></script>
 </body>
 </html>
