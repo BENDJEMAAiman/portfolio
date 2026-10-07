@@ -1,8 +1,8 @@
 /* ==========================================================
-   final.css: the closing "thank you" page
-   Loaded after sidebar.css (which defines --sidebar-w, --yellow,
-   --text). Positions are measured from the Figma screenshot
-   (1448 x 761 frame) and are approximate: confirm them in Inspect.
+   final.css: the "thank you" page
+   Loaded after sidebar.css. The sidebar rules below are
+   self-contained: they do not depend on any .is-active rule in
+   sidebar.css, so they work with any version of that file.
    ========================================================== */
 
 * {
@@ -12,53 +12,109 @@
 }
 
 :root {
-  --font-hand: "Gaegu", cursive;
-  --font-body: "Nunito", sans-serif;
-  --brown: var(--text, #965d33);
+  --wood: #f7eddc;
+  --brown: #80522a;
+  --thanks: #d9ccb9;
+  --hand: "Gaegu", cursive;
+  --body: "Nunito", sans-serif;
+
+  /* Placement of each object */
+  --pin-w: 30.2vw;
+  --pin-bottom: 2%;
+
+  --spatula-w: 15.6vw;
+
+  --tray-left: 50%;
+  --tray-top: 30.1%;
+  --tray-w: 36.8%;
 }
 
 body {
-  background: #f6ead6;
-  color: var(--brown);
-  font: 500 18px/1.4 var(--font-body);
+  background: var(--wood);
 }
 
-img { display: block; }
+img {
+  display: block;
+}
 
-/* ---------- The sidebar has a single item here ----------
-   sidebar.css puts the list ~14% down the window; in the design this
-   lone icon sits in the vertical middle instead. */
-.sidebar {
+/* ==========================================================
+   FINAL PAGE SIDEBAR
+   One item, "home", centred vertically. It never reacts to the
+   pointer: always coloured, always labelled, always pointed at.
+   ========================================================== */
+
+.sidebar--solo {
   align-items: center;
   padding-top: 0;
 }
 
-/* ---------- The scene ----------
-   One positioned box that clips what hangs outside it (the spatula and
-   the rolling pin run off the edges). aspect-ratio keeps the design's
-   proportions; min-height makes sure it always fills the window. */
-.scene {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 1448 / 761;
-  min-height: 100vh;
-  /* Wood grain without an image: two sets of faint horizontal lines
-     on top of a soft vertical gradient. */
-  background:
-    repeating-linear-gradient(0deg, rgba(196, 165, 125, 0.07) 0 1px, transparent 1px 6px),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.14) 0 2px, transparent 2px 11px),
-    linear-gradient(180deg, #f9efdc, #f4e7d1);
+/* No lift on hover (sidebar.css moves .nav-item up by 4px) */
+.sidebar--solo .nav-item,
+.sidebar--solo .nav-item:hover {
+  transform: none;
+  transition: none;
 }
 
-/* Everything inside is absolutely positioned. Percentages refer to the
-   scene's own width (left, right, width) and height (top, bottom). */
+/* The shop image: full colour at all times (sidebar.css greys it until
+   hover), so there is nothing left for hover to change. */
+.sidebar--solo .nav-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: none;
+  transition: none;
+}
+
+/* The "home" label is always visible, not faded in on hover */
+.sidebar--solo .nav-label {
+  opacity: 1;
+  transition: none;
+}
+
+/* The small yellow pointer, as in the design. An inline SVG (data URI) so
+   the corners can be rounded: the path is a left-pointing triangle, and a
+   stroke in the same colour as the fill softens its three corners.
+   top: 50% would centre it on the icon alone; the extra 9px centres it on
+   icon + label together, which is where it sits in the design (the label,
+   about 17px tall, is positioned outside the item's box). */
+.sidebar--solo .nav-item::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 20px);            /* 20px to the right of the icon */
+  top: calc(50% + 9px);
+  width: 18px;
+  height: 22px;
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 20'%3E%3Cpath d='M12 3 3 10l9 7z' fill='%23ffd980' stroke='%23ffd980' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+/* ==========================================================
+   THE SCENE
+   ========================================================== */
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 480px;
+  overflow: hidden;
+
+  background:
+    var(--wood)
+    url("../assets/img/final/bg.png")
+    center / cover
+    no-repeat;
+}
+
+/* ==========================================================
+   PROPS
+   ========================================================== */
+
 .awning,
-.thanks,
-.tray,
-.rolling-pin,
+.pin,
 .spatula,
-.copyright {
+.tray {
   position: absolute;
 }
 
@@ -67,86 +123,159 @@ img { display: block; }
   left: 0;
   width: 100%;
   height: auto;
-  z-index: 3;                       /* above everything: the roof overhangs the scene */
-}
-
-/* ---------- Title ---------- */
-.thanks {
-  left: 14.6%;
-  top: 36%;
-  z-index: 2;
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: clamp(44px, 5.4vw, 84px);   /* scales with the window, within limits */
-  line-height: 1.05;
-  color: #c9b69a;
-  text-shadow: 2px 3px 0 #fff;           /* the white "icing" edge */
-  transform: rotate(-5deg);
-  transform-origin: left center;
-}
-
-/* ---------- Baking tray with the three cookies ---------- */
-.tray {
-  left: 43.1%;
-  top: 30%;
-  width: 36.8%;
   z-index: 1;
 }
 
-.tray-pan {
-  width: 100%;
-  height: auto;
-}
-
-/* Cookies are positioned in percentages of the tray, so they stay on it
-   however large the tray is. */
-.cookie {
-  position: absolute;
-  height: auto;
-}
-
-.cookie--1 { left: 13.1%; top: 23.7%; width: 22.5%; }
-.cookie--2 { left: 40.9%; top: 28.2%; width: 21.2%; }
-.cookie--3 { left: 66.1%; top: 23.7%; width: 20.6%; }
-
-/* ---------- Kitchen tools at the edges ---------- */
-.rolling-pin {
+.pin {
   left: 0;
-  top: 57.3%;
-  width: 30.1%;
+  bottom: var(--pin-bottom);
+  width: var(--pin-w);
   height: auto;
 }
 
 .spatula {
   right: 0;
   bottom: 0;
-  width: 17%;
+  width: var(--spatula-w);
   height: auto;
 }
 
-/* ---------- Copyright ---------- */
-.copyright {
-  left: 0;
-  right: 0;
-  bottom: 10px;                       /* the line's centre sits ~22px above the scene's bottom edge */
-  z-index: 2;
-  text-align: center;
+/* The tray wrapper */
+.tray {
+  left: var(--tray-left);
+  top: var(--tray-top);
+  width: var(--tray-w);
 }
 
-/* ---------- Narrow screens ----------
-   The landscape composition does not fit a phone, so the scene becomes a
-   tall column: title on top, tray below, tools in the bottom corners. */
-@media (max-width: 700px) {
-  :root { --sidebar-w: 72px; }       /* overrides sidebar.css (loaded earlier) */
+.tray-img {
+  width: 90%;
+  height: auto;
+}
 
-  .scene {
-    aspect-ratio: auto;
-    min-height: 100svh;
+.cookie {
+  position: absolute;
+  height: auto;
+}
+
+.cookie--1 {
+  left: 13.1%;
+  top: 23.5%;
+  width: 22.5%;
+}
+
+.cookie--2 {
+  left: 41.3%;
+  top: 28.5%;
+  width: 20.6%;
+}
+
+.cookie--3 {
+  left: 66.2%;
+  top: 23.5%;
+  width: 20.5%;
+}
+
+/* ==========================================================
+   TEXT
+   ========================================================== */
+
+.thanks {
+  position: absolute;
+  left: 14.6%;
+  top: 48.6%;
+  z-index: 2;
+
+  font:
+    700 clamp(40px, 5.6vw, 110px) / 1.2
+    var(--hand);
+
+  color: var(--thanks);
+
+  text-shadow:
+    0 0 3px rgba(255, 255, 255, 0.95),
+    0 2px 1px rgba(255, 255, 255, 0.7);
+
+  transform: translateY(-50%) rotate(-6deg);
+  transform-origin: left center;
+}
+
+.credit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3.2%;
+  z-index: 2;
+
+  text-align: center;
+
+  font:
+    500 clamp(13px, 1.2vw, 17px) / 1.4
+    var(--body);
+
+  color: var(--brown);
+}
+
+/* ==========================================================
+   NARROW SCREENS
+   ========================================================== */
+
+@media (max-width: 800px) {
+
+  :root {
+    --sidebar-w: 72px;
   }
 
-  .thanks   { left: 24%; top: 20%; font-size: 42px; }
-  .tray     { left: 20%; top: 40%; width: 76%; }
-  .rolling-pin { top: auto; bottom: 6%; width: 46%; }
-  .spatula  { width: 30%; }
-  .copyright { left: 72px; font-size: 14px; bottom: 12px; }
+  .scene {
+    height: auto;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 28px;
+
+    padding:
+      24vw
+      16px
+      110px
+      calc(var(--sidebar-w) + 8px);
+  }
+
+  .thanks,
+  .tray {
+    position: static;
+    transform: none;
+  }
+
+  .thanks {
+    font-size: clamp(36px, 11vw, 64px);
+    text-align: center;
+    transform: rotate(-4deg);
+  }
+
+  .tray {
+    width: min(100%, 420px);
+  }
+
+  .pin {
+    width: 38vw;
+    bottom: 0;
+  }
+
+  .spatula {
+    width: 20vw;
+  }
+
+  .credit {
+    bottom: 14px;
+    padding: 0 16px 0 calc(var(--sidebar-w) + 8px);
+  }
+
+  /* Keep the shop bigger on mobile too */
+  .sidebar--solo .nav-item img {
+    width: 60px;
+    height: 60px;
+  }
+
 }
