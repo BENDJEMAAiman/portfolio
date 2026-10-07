@@ -1,188 +1,506 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>about | Part Folio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
-  <!-- sidebar.css first: it defines the :root variables used by about.css -->
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comfortaa:wght@300..700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Sidebar first so its variables are available to about.css -->
+
   <link rel="stylesheet" href="../css/sidebar.css">
   <link rel="stylesheet" href="../css/about.css">
 </head>
 
 <body>
 
-  <!-- Sidebar: the same block is repeated on every page.
-       Only aria-current="page" changes (it drives the active style). -->
+  <!-- Sidebar: same markup and assets as the other pages -->
+
   <nav class="sidebar" aria-label="Main navigation">
-    <ul>
-      <li>
-        <a class="nav-item" href="about.html" aria-current="page" title="about">
-           <img src="../assets/img/main%20page/about.png" alt="">
-          <span class="nav-label">about</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="work.html" title="work">
-          <img src="../assets/img/about/work_grey.png" alt="">
-          <span class="nav-label">work</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="links.html" title="links">
-          <img src="../assets/img/about/links_grey.png" alt="">
-          <span class="nav-label">links</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="faq.html" title="faq">
-          <img src="../assets/img/about/faq_grey.png" alt="">
-          <span class="nav-label">faq</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-item" href="contact.html" title="contact">
-          <img src="../assets/img/about/contact_grey.png" alt="">
-          <span class="nav-label">contact</span>
-        </a>
-      </li>
-    </ul>
+
+
+<ul>
+
+  <li>
+    <a
+      class="nav-item"
+      href="about.html"
+      aria-current="page"
+      title="about"
+    >
+      <img
+        src="../assets/img/main%20page/about.png"
+        alt=""
+      >
+      <span class="nav-label">about</span>
+    </a>
+  </li>
+
+  <li>
+    <a
+      class="nav-item"
+      href="work.html"
+      title="work"
+    >
+      <img
+        src="../assets/img/main%20page/work.png"
+        alt=""
+      >
+      <span class="nav-label">work</span>
+    </a>
+  </li>
+
+  <li>
+    <a
+      class="nav-item"
+      href="links.html"
+      title="links"
+    >
+      <img
+        src="../assets/img/main%20page/links.png"
+        alt=""
+      >
+      <span class="nav-label">links</span>
+    </a>
+  </li>
+
+  <li>
+    <a
+      class="nav-item"
+      href="faq.html"
+      title="faq"
+    >
+      <img
+        src="../assets/img/main%20page/faq.png"
+        alt=""
+      >
+      <span class="nav-label">faq</span>
+    </a>
+  </li>
+
+  <li>
+    <a
+      class="nav-item"
+      href="contact.html"
+      title="contact"
+    >
+      <img
+        src="../assets/img/main%20page/contact.png"
+        alt=""
+      >
+      <span class="nav-label">contact</span>
+    </a>
+  </li>
+
+</ul>
+
   </nav>
 
   <main class="content">
 
-    <!-- ===== Section 1: intro, education, experience ===== -->
-    <section class="about-section" aria-labelledby="intro-title">
 
-      <div class="intro">
-        <div class="intro-text">
-          <h1 id="intro-title">hi, I’m<br>doua ghoufrane bendjemaa</h1>
-          <p>Long before I knew UI/UX or branding, I loved making things <mark>look better</mark>. I was the classmate everyone asked to design presentations, choose colors, or make projects feel polished. Those moments became my first design projects.</p>
-          <p>Now, I’m a <mark>Computer Science</mark> student pursuing Product Design, combining creativity with technology. I find inspiration everywhere, from art galleries to clothing stores, baking, and life.</p>
-          <p>Welcome to my corner of the internet.</p>
-        </div>
+<!-- ===== Section 1: intro, education, experience ===== -->
 
-        <figure class="portrait">
-          <img class="portrait-photo" src="../assets/img/about/my%20photo.png" alt="">
-          <img class="portrait-hat" src="../assets/img/about/chef-hat.png" alt="">
-          <img class="portrait-arrow" src="../assets/img/about/arrow-portrait.png" alt="">
-        </figure>
+<section class="about-section" aria-labelledby="intro-title">
+
+  <div class="intro">
+
+    <div class="intro-text">
+
+      <h1 id="intro-title">
+        hi, I’m<br>
+        doua ghoufrane bendjemaa
+      </h1>
+
+      <p>
+        Long before I knew UI/UX or branding, I loved making things
+        <mark>look better</mark>. I was the classmate everyone asked to
+        design presentations, choose colors, or make projects feel
+        polished. Those moments became my first design projects.
+      </p>
+
+      <p>
+        Now, I’m a <mark>Computer Science</mark> student pursuing Product
+        Design, combining creativity with technology. I find inspiration
+        everywhere, from art galleries to clothing stores, baking, and life.
+      </p>
+
+      <p>
+        Welcome to my corner of the internet.
+      </p>
+
+    </div>
+
+    <figure class="portrait">
+
+      <img
+        class="portrait-photo"
+        src="../assets/img/about/my%20photo.png"
+        alt=""
+      >
+
+      <img
+        class="portrait-hat"
+        src="../assets/img/about/chef-hat.png"
+        alt=""
+      >
+
+      <img
+        class="portrait-arrow"
+        src="../assets/img/about/arrow-portrait.png"
+        alt=""
+      >
+
+    </figure>
+
+  </div>
+
+  <div class="history">
+
+    <section class="history-col">
+
+      <h2>education</h2>
+
+      <div class="entries">
+
+        <article class="entry">
+
+          <h3>Engineering Degree in Computer Science</h3>
+
+          <p>
+            Higher School of Computer Science, Sidi Bel Abbès, Algeria<br>
+            Sep 2022 – Present
+          </p>
+
+        </article>
+
+        <article class="entry">
+
+          <h3>Scientific Baccalaureate</h3>
+
+          <p>
+            Lebah Mohamed Lakhder High School, Khenchela, Algeria<br>
+            Obtained in 2022, Scientific Stream
+          </p>
+
+        </article>
+
       </div>
 
-      <div class="history">
-        <section class="history-col">
-          <h2>education</h2>
-          <div class="entries">
-            <article class="entry">
-              <h3>Engineering Degree in Computer Science</h3>
-              <p>Higher School of Computer Science, Sidi Bel Abbès, Algeria<br>Sep 2022 – Present</p>
-            </article>
-            <article class="entry">
-              <h3>Scientific Baccalaureate</h3>
-              <p>Lebah Mohamed Lakhder High School, Khenchela, Algeria<br>Obtained in 2022, Scientific Stream</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="history-col history-col--divided">
-          <h2>selected experience</h2>
-          <div class="entries">
-            <article class="entry">
-              <h3>UX Analyst &amp; Designer</h3>
-              <p>Third-Year Multidisciplinary Project, Feb 2026 – June 2026</p>
-            </article>
-            <article class="entry">
-              <h3>Vice President, Design Department</h3>
-              <p>Ingeniums Club, Higher School of Computer Science, Algeria<br>Sept 2023 – Sept 2024</p>
-            </article>
-          </div>
-        </section>
-      </div>
     </section>
 
-    <!-- ===== Section 2: contact, skills, tools ===== -->
-    <section class="about-section" aria-label="Contact details, skills and tools">
+    <section class="history-col history-col--divided">
 
-      <!-- One grid for all six blocks keeps the 3 columns aligned across both rows -->
-      <div class="info-grid">
+      <h2>selected experience</h2>
 
-        <section>
-          <h2>contact</h2>
-          <ul class="contact-list">
-            <li><img src="../assets/img/about/contact%20section/phone.png" alt=""><a href="tel:+231657193520">+231 657 19 35 20</a></li>
-            <li><img src="../assets/img/about/contact%20section/mail.png" alt=""><a href="mailto:dg.bendjemaa@esi-sba.dz">dg.bendjemaa@esi-sba.dz</a></li>
-            <li><img src="../assets/img/about/contact%20section/linkedin.png" alt=""><mark><a href="#" target="_blank" rel="noopener">Doua Ghoufrane Bendjemaa</a></mark></li>
-            <li><img src="../assets/img/about/contact%20section/behance.png" alt=""><a href="https://www.behance.net/DouaaGhofraneB" target="_blank" rel="noopener">behance.net/DouaaGhofraneB</a></li>
-          </ul>
-        </section>
+      <div class="entries">
 
-        <section>
-          <h2>based in</h2>
-          <p class="location"><img src="../assets/img/about/based%20in%20section/algiers.png" alt=""> Algeria, Algiers</p>
-          <div class="qr">
-            <img class="qr-arrow" src="../assets/img/about/arrow-qr.png" alt="">
-            <img class="qr-code" src="../assets/img/about/based%20in%20section/QR%20code%20linkedin.png" alt="QR code linking to my LinkedIn profile">
-          </div>
-        </section>
+        <article class="entry">
 
-        <section>
-          <h2>languages</h2>
-          <ul class="plain-list lang-list">
-            <li>Arabic <small>Native</small></li>
-            <li>English <small>fluent</small></li>
-            <li><mark>French</mark> <small>fluent</small></li>
-          </ul>
-        </section>
+          <h3>UX Analyst &amp; Designer</h3>
 
-        <section>
-          <h2>soft skills</h2>
-          <ul class="plain-list">
-            <li>Effective teamwork</li>
-            <li>Time management</li>
-            <li>Attention to details</li>
-            <li><mark>Creative thinking</mark></li>
-            <li>Visual storytelling</li>
-            <li>Rapid sketching</li>
-            <li>Presentation skills</li>
-          </ul>
-        </section>
+          <p>
+            Third-Year Multidisciplinary Project, Feb 2026 – June 2026
+          </p>
 
-        <section>
-          <h2>hard skills</h2>
-          <ul class="plain-list">
-            <li>Product discovery</li>
-            <li>Business analysis</li>
-            <li>UX research</li>
-            <li>UI design</li>
-            <li>Prototyping</li>
-            <li><mark>Design system</mark></li>
-            <li>Illustration</li>
-          </ul>
-        </section>
+        </article>
 
-        <section>
-          <h2>tools</h2>
-          <!-- --n = number of sparkles drawn (see .rating in about.css) -->
-          <ul class="tools-list">
-            <li><img src="../assets/img/about/tools%20section/figma.png" alt="Figma"><span class="rating" style="--n: 5" role="img" aria-label="5 out of 5"></span></li>
-            <li><img src="../assets/img/about/tools%20section/adobe-illustrator.png" alt="Illustrator"><span class="rating" style="--n: 4" role="img" aria-label="4 out of 5"></span></li>
-            <li><img src="../assets/img/about/tools%20section/canva.png" alt="Canva"><span class="rating" style="--n: 3" role="img" aria-label="3 out of 5"></span></li>
-            <li><img src="../assets/img/about/tools%20section/Ps.png" alt="Photoshop"><span class="rating" style="--n: 3" role="img" aria-label="3 out of 5"></span></li>
-            <li><img src="../assets/img/about/tools%20section/adobe-after-effects.png" alt="After Effects"><span class="rating" style="--n: 2" role="img" aria-label="2 out of 5"></span></li>
-          </ul>
-        </section>
+        <article class="entry">
+
+          <h3>Vice President, Design Department</h3>
+
+          <p>
+            Ingeniums Club, Higher School of Computer Science, Algeria<br>
+            Sept 2023 – Sept 2024
+          </p>
+
+        </article>
 
       </div>
 
-      <div class="actions">
-        <a class="btn" href="contact.html">Contact me</a>
-        <a class="btn" href="../assets/resume.pdf" target="_blank" rel="noopener">View my resume</a>
-      </div>
     </section>
+
+  </div>
+
+</section>
+
+
+<!-- ===== Section 2: contact, skills, tools ===== -->
+
+<section
+  class="about-section"
+  aria-label="Contact details, skills and tools"
+>
+
+  <!-- One grid for all six blocks keeps the 3 columns aligned across both rows -->
+
+  <div class="info-grid">
+
+    <section>
+
+      <h2>contact</h2>
+
+      <ul class="contact-list">
+
+        <li>
+          <img
+            src="../assets/img/about/contact%20section/phone.png"
+            alt=""
+          >
+          <a href="tel:+231657193520">
+            +231 657 19 35 20
+          </a>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/contact%20section/mail.png"
+            alt=""
+          >
+          <a href="mailto:dg.bendjemaa@esi-sba.dz">
+            dg.bendjemaa@esi-sba.dz
+          </a>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/contact%20section/linkedin.png"
+            alt=""
+          >
+          <mark>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Doua Ghoufrane Bendjemaa
+            </a>
+          </mark>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/contact%20section/behance.png"
+            alt=""
+          >
+          <a
+            href="https://www.behance.net/DouaaGhofraneB"
+            target="_blank"
+            rel="noopener"
+          >
+            behance.net/DouaaGhofraneB
+          </a>
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section>
+
+      <h2>based in</h2>
+
+      <p class="location">
+        <img
+          src="../assets/img/about/based%20in%20section/algiers.png"
+          alt=""
+        >
+        Algeria, Algiers
+      </p>
+
+      <div class="qr">
+
+        <img
+          class="qr-arrow"
+          src="../assets/img/about/arrow-qr.png"
+          alt=""
+        >
+
+        <img
+          class="qr-code"
+          src="../assets/img/about/based%20in%20section/QR%20code%20linkedin.png"
+          alt="QR code linking to my LinkedIn profile"
+        >
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <h2>languages</h2>
+
+      <ul class="plain-list lang-list">
+
+        <li>
+          Arabic <small>Native</small>
+        </li>
+
+        <li>
+          English <small>fluent</small>
+        </li>
+
+        <li>
+          <mark>French</mark> <small>fluent</small>
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section>
+
+      <h2>soft skills</h2>
+
+      <ul class="plain-list">
+
+        <li>Effective teamwork</li>
+        <li>Time management</li>
+        <li>Attention to details</li>
+        <li><mark>Creative thinking</mark></li>
+        <li>Visual storytelling</li>
+        <li>Rapid sketching</li>
+        <li>Presentation skills</li>
+
+      </ul>
+
+    </section>
+
+
+    <section>
+
+      <h2>hard skills</h2>
+
+      <ul class="plain-list">
+
+        <li>Product discovery</li>
+        <li>Business analysis</li>
+        <li>UX research</li>
+        <li>UI design</li>
+        <li>Prototyping</li>
+        <li><mark>Design system</mark></li>
+        <li>Illustration</li>
+
+      </ul>
+
+    </section>
+
+
+    <section>
+
+      <h2>tools</h2>
+
+      <!-- --n = number of sparkles -->
+
+      <ul class="tools-list">
+
+        <li>
+          <img
+            src="../assets/img/about/tools%20section/figma.png"
+            alt="Figma"
+          >
+          <span
+            class="rating"
+            style="--n: 5"
+            role="img"
+            aria-label="5 out of 5"
+          ></span>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/tools%20section/adobe-illustrator.png"
+            alt="Illustrator"
+          >
+          <span
+            class="rating"
+            style="--n: 4"
+            role="img"
+            aria-label="4 out of 5"
+          ></span>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/tools%20section/canva.png"
+            alt="Canva"
+          >
+          <span
+            class="rating"
+            style="--n: 3"
+            role="img"
+            aria-label="3 out of 5"
+          ></span>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/tools%20section/Ps.png"
+            alt="Photoshop"
+          >
+          <span
+            class="rating"
+            style="--n: 3"
+            role="img"
+            aria-label="3 out of 5"
+          ></span>
+        </li>
+
+        <li>
+          <img
+            src="../assets/img/about/tools%20section/adobe-after-effects.png"
+            alt="After Effects"
+          >
+          <span
+            class="rating"
+            style="--n: 2"
+            role="img"
+            aria-label="2 out of 5"
+          ></span>
+        </li>
+
+      </ul>
+
+    </section>
+
+  </div>
+
+
+  <div class="actions">
+
+    <a class="btn" href="contact.html">
+      Contact me
+    </a>
+
+    <a
+      class="btn"
+      href="../assets/resume.pdf"
+      target="_blank"
+      rel="noopener"
+    >
+      View my resume
+    </a>
+
+  </div>
+
+</section>
+
 
   </main>
 
 </body>
+
 </html>
