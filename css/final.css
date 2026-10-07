@@ -1,0 +1,152 @@
+/* ==========================================================
+   final.css: the closing "thank you" page
+   Loaded after sidebar.css (which defines --sidebar-w, --yellow,
+   --text). Positions are measured from the Figma screenshot
+   (1448 x 761 frame) and are approximate: confirm them in Inspect.
+   ========================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-hand: "Gaegu", cursive;
+  --font-body: "Nunito", sans-serif;
+  --brown: var(--text, #965d33);
+}
+
+body {
+  background: #f6ead6;
+  color: var(--brown);
+  font: 500 18px/1.4 var(--font-body);
+}
+
+img { display: block; }
+
+/* ---------- The sidebar has a single item here ----------
+   sidebar.css puts the list ~14% down the window; in the design this
+   lone icon sits in the vertical middle instead. */
+.sidebar {
+  align-items: center;
+  padding-top: 0;
+}
+
+/* ---------- The scene ----------
+   One positioned box that clips what hangs outside it (the spatula and
+   the rolling pin run off the edges). aspect-ratio keeps the design's
+   proportions; min-height makes sure it always fills the window. */
+.scene {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1448 / 761;
+  min-height: 100vh;
+  /* Wood grain without an image: two sets of faint horizontal lines
+     on top of a soft vertical gradient. */
+  background:
+    repeating-linear-gradient(0deg, rgba(196, 165, 125, 0.07) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.14) 0 2px, transparent 2px 11px),
+    linear-gradient(180deg, #f9efdc, #f4e7d1);
+}
+
+/* Everything inside is absolutely positioned. Percentages refer to the
+   scene's own width (left, right, width) and height (top, bottom). */
+.awning,
+.thanks,
+.tray,
+.rolling-pin,
+.spatula,
+.copyright {
+  position: absolute;
+}
+
+.awning {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 3;                       /* above everything: the roof overhangs the scene */
+}
+
+/* ---------- Title ---------- */
+.thanks {
+  left: 14.6%;
+  top: 36%;
+  z-index: 2;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: clamp(44px, 5.4vw, 84px);   /* scales with the window, within limits */
+  line-height: 1.05;
+  color: #c9b69a;
+  text-shadow: 2px 3px 0 #fff;           /* the white "icing" edge */
+  transform: rotate(-5deg);
+  transform-origin: left center;
+}
+
+/* ---------- Baking tray with the three cookies ---------- */
+.tray {
+  left: 43.1%;
+  top: 30%;
+  width: 36.8%;
+  z-index: 1;
+}
+
+.tray-pan {
+  width: 100%;
+  height: auto;
+}
+
+/* Cookies are positioned in percentages of the tray, so they stay on it
+   however large the tray is. */
+.cookie {
+  position: absolute;
+  height: auto;
+}
+
+.cookie--1 { left: 13.1%; top: 23.7%; width: 22.5%; }
+.cookie--2 { left: 40.9%; top: 28.2%; width: 21.2%; }
+.cookie--3 { left: 66.1%; top: 23.7%; width: 20.6%; }
+
+/* ---------- Kitchen tools at the edges ---------- */
+.rolling-pin {
+  left: 0;
+  top: 57.3%;
+  width: 30.1%;
+  height: auto;
+}
+
+.spatula {
+  right: 0;
+  bottom: 0;
+  width: 17%;
+  height: auto;
+}
+
+/* ---------- Copyright ---------- */
+.copyright {
+  left: 0;
+  right: 0;
+  bottom: 10px;                       /* the line's centre sits ~22px above the scene's bottom edge */
+  z-index: 2;
+  text-align: center;
+}
+
+/* ---------- Narrow screens ----------
+   The landscape composition does not fit a phone, so the scene becomes a
+   tall column: title on top, tray below, tools in the bottom corners. */
+@media (max-width: 700px) {
+  :root { --sidebar-w: 72px; }       /* overrides sidebar.css (loaded earlier) */
+
+  .scene {
+    aspect-ratio: auto;
+    min-height: 100svh;
+  }
+
+  .thanks   { left: 24%; top: 20%; font-size: 42px; }
+  .tray     { left: 20%; top: 40%; width: 76%; }
+  .rolling-pin { top: auto; bottom: 6%; width: 46%; }
+  .spatula  { width: 30%; }
+  .copyright { left: 72px; font-size: 14px; bottom: 12px; }
+}

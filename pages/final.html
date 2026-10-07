@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>thank you | Part Folio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Gaegu:wght@400;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/final.css">
+</head>
+
+<body>
+
+  <!-- Sidebar: on this last page there is only one destination, home.
+       class="is-active" gives it the coloured look, label and pointer
+       (see sidebar.css) without claiming that home is the CURRENT page,
+       which is what aria-current="page" would say to a screen reader. -->
+  <nav class="sidebar" aria-label="Main navigation">
+    <ul>
+      <li>
+        <a class="nav-item is-active" href="../index.html" title="home">
+          <img src="../assets/img/contact/house.png" alt="">
+          <span class="nav-label">home</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- The page is one illustrated "scene": every picture is positioned in
+       percentages of .scene, so the composition scales as a whole. -->
+  <main class="scene">
+
+    <img class="awning" src="../assets/img/final/awning.png" alt="">
+
+    <h1 class="thanks">Thank you<br>for watching</h1>
+
+    <div class="tray">
+      <img class="tray-pan" src="../assets/img/final/tray.png" alt="">
+      <!-- Cookies sit on top of the tray. If tray.png already contains them, delete these three lines. -->
+      <img class="cookie cookie--1" src="../assets/img/final/cookie-1.png" alt="">
+      <img class="cookie cookie--2" src="../assets/img/final/cookie-2.png" alt="">
+      <img class="cookie cookie--3" src="../assets/img/final/cookie-3.png" alt="">
+    </div>
+
+    <img class="rolling-pin" src="../assets/img/final/rolling-pin.png" alt="">
+    <img class="spatula" src="../assets/img/final/spatula.png" alt="">
+
+    <footer class="copyright">
+      <p>&copy; 2026 Bendjemaa doua Ghoufrane. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
